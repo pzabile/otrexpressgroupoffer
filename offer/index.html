@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OTR Express Group | Carrier Offer — CDL-A Driver Recruiting</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <meta name="description" content="OTR Express Group recruits CDL-A OTR company drivers for trucking carriers. Pay only when a driver actually seats. $1,600 per placement, split 50/50 with a replacement guarantee." />
+  <meta property="og:title" content="OTR Express Group | Carrier Offer" />
+  <meta property="og:description" content="We find, recruit, and deliver CDL-A OTR company drivers — you only pay when a driver actually starts." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #FFFFFF;
+      --bg-alt: #F3F4F6;
+      --bg-card: #FFFFFF;
+      --accent-primary: #2563EB;
+      --accent-hover: #3B82F6;
+      --accent-deep: #1E3A8A;
+      --text-primary: #0F172A;
+      --text-muted: #6B7280;
+      --border-color: #E5E7EB;
+      --footer-bg: #0F172A;
+      --error: #EF4444;
+      --success: #10B981;
+      --font-heading: 'Bebas Neue', sans-serif;
+      --font-subheading: 'Barlow Condensed', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { margin: 0; padding: 0; font-family: var(--font-body); color: var(--text-primary); background: var(--bg-primary); overflow-x: hidden; }
+    * { box-sizing: border-box; }
+    h1, h2, h3, h4, h5, h6, p { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: var(--font-subheading); cursor: pointer; border: none; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+    .section-padding { padding: 100px 0; }
+    @media (max-width: 768px) { .section-padding { padding: 56px 0; } }
+
+    .bebas { font-family: var(--font-heading); text-transform: uppercase; line-height: 0.95; }
+    .barlow { font-family: var(--font-subheading); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    /* Navbar */
+    nav { position: sticky; top: 0; width: 100%; background: var(--bg-primary); border-bottom: 1px solid var(--border-color); z-index: 1000; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 80px; max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .nav-logo-top { font-family: var(--font-heading); color: var(--text-primary); font-size: 22px; letter-spacing: 0.05em; }
+    .nav-logo-bottom { font-family: var(--font-subheading); font-weight: 700; color: var(--accent-primary); font-size: 13px; letter-spacing: 0.1em; }
+
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-item { font-family: var(--font-subheading); font-weight: 600; color: var(--text-primary); font-size: 15px; text-transform: uppercase; letter-spacing: 0.05em; position: relative; padding-bottom: 4px; }
+    .nav-item::after { content: ''; position: absolute; bottom: 0; left: -100%; width: 100%; height: 2px; background: var(--accent-primary); transition: left 0.3s ease; }
+    .nav-item:hover::after { left: 0; }
+    .nav-btn { background: var(--accent-primary); color: #fff; padding: 10px 22px; border-radius: 6px; font-weight: 700; font-size: 15px; transition: background 0.3s; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-subheading); }
+    .nav-btn:hover { background: var(--accent-hover); }
+
+    .menu-toggle { display: none; background: none; border: none; padding: 8px; }
+    .menu-toggle div { width: 24px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: 0.3s; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .nav-links.open { display: flex; position: absolute; top: 80px; left: 0; right: 0; flex-direction: column; background: #fff; padding: 24px 5%; border-bottom: 1px solid var(--border-color); gap: 18px; align-items: flex-start; }
+    }
+
+    /* Hero */
+    .hero { position: relative; padding: 96px 0 80px; background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%); color: #fff; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(37,99,235,0.35), transparent 50%); pointer-events: none; }
+    .hero-inner { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero-overline { color: #93C5FD; font-family: var(--font-subheading); font-weight: 600; font-size: 14px; letter-spacing: 0.18em; margin-bottom: 18px; display: block; text-transform: uppercase; }
+    .hero-headline { font-family: var(--font-heading); font-size: 78px; line-height: 0.95; margin-bottom: 24px; letter-spacing: 0.01em; }
+    .hero-headline span { color: #60A5FA; }
+    .hero-sub { color: rgba(255,255,255,0.78); font-size: 18px; line-height: 1.6; margin-bottom: 32px; max-width: 520px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent-primary); color: #fff; padding: 14px 26px; border-radius: 6px; font-weight: 700; font-size: 16px; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-subheading); text-transform: uppercase; letter-spacing: 0.06em; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    .btn-secondary { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 14px 26px; border-radius: 6px; font-weight: 700; font-size: 16px; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-subheading); text-transform: uppercase; letter-spacing: 0.06em; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+
+    .hero-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 32px; backdrop-filter: blur(10px); }
+    .hero-card h3 { font-family: var(--font-heading); font-size: 28px; margin-bottom: 16px; color: #fff; }
+    .hero-card ul { list-style: none; padding: 0; margin: 0; }
+    .hero-card li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; color: rgba(255,255,255,0.85); font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .hero-card li:last-child { border-bottom: none; }
+    .hero-card li svg { flex-shrink: 0; color: #60A5FA; margin-top: 2px; }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-headline { font-size: 52px; }
+      .hero { padding: 64px 0 56px; }
+    }
+
+    /* Stats / value strip */
+    .strip { background: var(--accent-primary); padding: 40px 0; color: #fff; }
+    .strip-grid { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .strip-item { text-align: center; padding: 0 16px; }
+    .strip-num { font-family: var(--font-heading); font-size: 44px; line-height: 1; }
+    .strip-label { font-family: var(--font-subheading); font-size: 13px; color: rgba(255,255,255,0.85); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+
+    /* Section heading */
+    .section-over { color: var(--accent-primary); font-family: var(--font-subheading); font-weight: 700; font-size: 14px; letter-spacing: 0.18em; margin-bottom: 14px; display: block; text-transform: uppercase; }
+    .section-head { font-family: var(--font-heading); font-size: 56px; color: var(--text-primary); margin-bottom: 20px; line-height: 1; }
+    .section-lead { font-size: 17px; color: var(--text-muted); line-height: 1.7; max-width: 720px; }
+    .center { text-align: center; }
+    .center .section-lead { margin-left: auto; margin-right: auto; }
+    @media (max-width: 768px) { .section-head { font-size: 40px; } }
+
+    /* What we do */
+    .whatwedo { background: var(--bg-primary); }
+    .whatwedo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 48px; }
+    .whatwedo-list { display: grid; gap: 18px; }
+    .wd-item { display: flex; gap: 16px; align-items: flex-start; padding: 18px; background: var(--bg-alt); border-radius: 12px; border-left: 3px solid var(--accent-primary); }
+    .wd-item svg { flex-shrink: 0; color: var(--accent-primary); margin-top: 2px; }
+    .wd-item strong { display: block; font-family: var(--font-subheading); font-weight: 700; color: var(--text-primary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; font-size: 15px; }
+    .wd-item span { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+    .note-callout { background: #FEF3C7; border: 1px solid #FCD34D; color: #92400E; padding: 18px 22px; border-radius: 10px; margin-top: 28px; font-size: 15px; line-height: 1.6; }
+    .note-callout strong { color: #78350F; }
+    @media (max-width: 900px) { .whatwedo-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* Process */
+    .process { background: var(--bg-alt); }
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 56px; }
+    .p-card { background: var(--bg-card); border-radius: 14px; border: 1px solid var(--border-color); padding: 32px 24px; position: relative; transition: all 0.3s; }
+    .p-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(37,99,235,0.12); border-top: 2px solid var(--accent-primary); }
+    .p-num { font-family: var(--font-heading); font-size: 56px; color: var(--accent-primary); opacity: 0.18; line-height: 0.8; position: absolute; top: 14px; right: 18px; }
+    .p-icon { width: 40px; height: 40px; color: var(--accent-primary); margin-bottom: 18px; }
+    .p-title { font-family: var(--font-subheading); font-weight: 700; font-size: 17px; margin-bottom: 12px; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.04em; }
+    .p-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    @media (max-width: 1024px) { .process-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .process-grid { grid-template-columns: 1fr; } }
+
+    /* Pricing two-col */
+    .pricing { background: var(--bg-primary); }
+    .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 56px; }
+    .price-card { background: var(--bg-card); border-radius: 18px; padding: 40px; border: 1px solid var(--border-color); box-shadow: 0 6px 24px rgba(15,23,42,0.05); position: relative; }
+    .price-card.featured { background: linear-gradient(160deg, #0F172A 0%, #1E3A8A 100%); color: #fff; border: none; }
+    .price-tag { display: inline-block; font-family: var(--font-subheading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px; padding: 6px 12px; border-radius: 999px; background: rgba(37,99,235,0.1); color: var(--accent-primary); margin-bottom: 18px; }
+    .price-card.featured .price-tag { background: rgba(96,165,250,0.18); color: #93C5FD; }
+    .price-card h3 { font-family: var(--font-heading); font-size: 34px; margin-bottom: 14px; line-height: 1; }
+    .price-card p.lead { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 22px; }
+    .price-card.featured p.lead { color: rgba(255,255,255,0.75); }
+    .price-amount { font-family: var(--font-heading); font-size: 64px; line-height: 1; color: var(--accent-primary); margin-bottom: 6px; }
+    .price-card.featured .price-amount { color: #60A5FA; }
+    .price-amount small { font-size: 18px; color: var(--text-muted); font-family: var(--font-body); font-weight: 500; letter-spacing: 0; }
+    .price-card.featured .price-amount small { color: rgba(255,255,255,0.6); }
+    .price-split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+    .split-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 16px; }
+    .split-box strong { display: block; font-family: var(--font-heading); font-size: 24px; color: #fff; margin-bottom: 6px; }
+    .split-box span { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+    .price-list { list-style: none; padding: 0; margin: 0; }
+    .price-list li { display: flex; gap: 12px; padding: 10px 0; font-size: 15px; line-height: 1.5; }
+    .price-list li svg { flex-shrink: 0; color: var(--accent-primary); margin-top: 3px; }
+    .price-card.featured .price-list li svg { color: #60A5FA; }
+    .price-card.featured .price-list li { color: rgba(255,255,255,0.88); }
+    @media (max-width: 900px) { .price-grid { grid-template-columns: 1fr; } }
+
+    /* Guarantee */
+    .guarantee { background: var(--bg-alt); }
+    .guarantee-wrap { display: grid; grid-template-columns: 1fr 1.4fr; gap: 56px; align-items: center; }
+    .guarantee-badge { background: linear-gradient(160deg, var(--accent-primary), var(--accent-deep)); color: #fff; border-radius: 20px; padding: 48px; text-align: center; box-shadow: 0 20px 60px rgba(37,99,235,0.25); }
+    .guarantee-badge .g-icon { width: 64px; height: 64px; margin: 0 auto 20px; color: #fff; }
+    .guarantee-badge h3 { font-family: var(--font-heading); font-size: 38px; line-height: 1; margin-bottom: 12px; }
+    .guarantee-badge p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.85); }
+    .guarantee-list { display: grid; gap: 18px; }
+    .g-item { background: #fff; border-radius: 12px; padding: 22px 24px; border-left: 3px solid var(--accent-primary); display: flex; gap: 16px; align-items: flex-start; }
+    .g-item svg { flex-shrink: 0; color: var(--accent-primary); margin-top: 2px; }
+    .g-item p { font-size: 15px; color: var(--text-primary); line-height: 1.6; }
+    @media (max-width: 900px) { .guarantee-wrap { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* Travel waiver callout */
+    .waiver { background: var(--bg-primary); }
+    .waiver-card { background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%); border-radius: 22px; padding: 56px; color: #fff; position: relative; overflow: hidden; }
+    .waiver-card::before { content: ''; position: absolute; top: -100px; right: -100px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(96,165,250,0.25), transparent 70%); pointer-events: none; }
+    .waiver-inner { position: relative; display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center; }
+    .waiver-icon { width: 72px; height: 72px; background: rgba(96,165,250,0.18); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #93C5FD; }
+    .waiver-icon svg { width: 36px; height: 36px; }
+    .waiver-text h3 { font-family: var(--font-heading); font-size: 32px; margin-bottom: 10px; }
+    .waiver-text p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.82); max-width: 640px; }
+    .waiver-btn { background: #fff; color: var(--accent-deep); padding: 16px 28px; border-radius: 8px; font-family: var(--font-subheading); font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; white-space: nowrap; }
+    .waiver-btn:hover { background: #93C5FD; color: #fff; }
+    @media (max-width: 900px) { .waiver-card { padding: 36px 28px; } .waiver-inner { grid-template-columns: 1fr; text-align: left; gap: 22px; } }
+
+    /* Expect */
+    .expect { background: var(--bg-alt); }
+    .expect-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+    .e-card { background: #fff; border-radius: 14px; padding: 28px; box-shadow: 0 4px 16px rgba(15,23,42,0.04); display: flex; gap: 18px; align-items: flex-start; }
+    .e-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(37,99,235,0.1); color: var(--accent-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .e-title { font-family: var(--font-subheading); font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-primary); margin-bottom: 6px; }
+    .e-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    @media (max-width: 760px) { .expect-grid { grid-template-columns: 1fr; } }
+
+    /* Form */
+    .contact { background: var(--bg-primary); }
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
+    .contact-left .section-head { text-align: left; font-size: 52px; }
+    .contact-left .section-lead { margin-bottom: 24px; }
+    .contact-left ul { list-style: none; padding: 0; margin-top: 16px; display: grid; gap: 12px; }
+    .contact-left li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-primary); }
+    .contact-left li svg { color: var(--success); flex-shrink: 0; }
+
+    .form-box { background: var(--bg-card); border-radius: 18px; border: 1px solid var(--border-color); padding: 40px; box-shadow: 0 8px 32px rgba(15,23,42,0.06); }
+    .f-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+    .f-group { position: relative; }
+    .f-group.full { grid-column: span 2; }
+    .f-ctrl { width: 100%; border: 1px solid var(--border-color); border-radius: 8px; font-family: var(--font-body); font-size: 15px; color: var(--text-primary); padding: 22px 14px 8px; background: #fff; outline: none; transition: 0.2s; }
+    .f-label { position: absolute; left: 14px; top: 16px; color: #9CA3AF; font-size: 14px; transition: 0.2s; pointer-events: none; background: transparent; }
+    .f-ctrl:focus { border-color: var(--accent-primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
+    .f-ctrl:focus + .f-label,
+    .f-ctrl:not(:placeholder-shown) + .f-label { top: 5px; font-size: 11px; font-weight: 600; color: var(--accent-primary); }
+    .f-ctrl.error { border-color: var(--error); }
+    .f-ctrl.error + .f-label { color: var(--error); }
+
+    .f-btn { width: 100%; background: linear-gradient(90deg, var(--accent-primary), var(--accent-deep)); color: #fff; font-size: 16px; font-family: var(--font-subheading); font-weight: 700; padding: 16px; border-radius: 8px; letter-spacing: 0.08em; text-transform: uppercase; transition: 0.3s; }
+    .f-btn:hover { box-shadow: 0 8px 24px rgba(37,99,235,0.3); transform: translateY(-1px); }
+    .f-btn[data-loading] { opacity: 0.7; pointer-events: none; }
+    .f-btn[data-loading]::before { content: ''; display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.4); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 8px; vertical-align: middle; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .f-secure { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--text-muted); font-size: 12px; margin-top: 14px; }
+    .form-msg { padding: 14px 18px; border-radius: 8px; font-size: 14px; text-align: center; margin-bottom: 16px; display: none; }
+    .form-msg.success { background: #D1FAE5; color: #065F46; border: 1px solid #6EE7B7; }
+    .form-msg.error { background: #FEE2E2; color: #991B1B; border: 1px solid #FECACA; }
+    @media (max-width: 900px) { .contact-wrap { grid-template-columns: 1fr; gap: 40px; } .contact-left .section-head { font-size: 40px; } .f-grid { grid-template-columns: 1fr; } .f-group.full { grid-column: auto; } .form-box { padding: 28px; } }
+
+    /* Footer */
+    footer { background: var(--footer-bg); padding: 64px 0 28px; color: #fff; }
+    .ft-inner { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+    .ft-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .ft-logo-row { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .ft-logo-row img { height: 44px; }
+    .ft-logo-top { font-family: var(--font-heading); color: #fff; font-size: 24px; letter-spacing: 0.05em; line-height: 1; display: block; }
+    .ft-logo-bot { font-family: var(--font-subheading); font-weight: 700; color: var(--accent-primary); font-size: 14px; letter-spacing: 0.1em; display: block; }
+    .ft-desc { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6; max-width: 360px; }
+    .ft-col h5 { font-family: var(--font-subheading); color: #fff; font-size: 16px; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .ft-links { display: flex; flex-direction: column; gap: 10px; }
+    .ft-links a { font-family: var(--font-subheading); color: #9CA3AF; font-size: 14px; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.04em; }
+    .ft-links a:hover { color: #fff; }
+    .ft-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .ft-bottom p { color: var(--text-muted); font-size: 13px; }
+    @media (max-width: 768px) { .ft-grid { grid-template-columns: 1fr; gap: 32px; } .ft-bottom { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="logo.png" alt="OTR Express Group" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-top">OTR EXPRESS</span>
+        <span class="nav-logo-bottom">GROUP</span>
+      </div>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><div></div><div></div><div></div></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#how" class="nav-item">How We Work</a>
+      <a href="#pricing" class="nav-item">Pricing</a>
+      <a href="#guarantee" class="nav-item">Guarantee</a>
+      <a href="#expect" class="nav-item">What To Expect</a>
+      <a href="#contact" class="nav-btn">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-overline">A Carrier Offer From OTR Express Group</span>
+      <h1 class="hero-headline">Recruit CDL-A Drivers. <span>Pay Only When They Seat.</span></h1>
+      <p class="hero-sub">We find, recruit, qualify, and deliver CDL-A OTR company drivers all the way to your orientation. No retainers. No setup fees. No marketing costs on you. You pay $1,600 per seated driver — split in two, with a real replacement guarantee.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Get Drivers Now &rarr;</a>
+        <a href="#how" class="btn-secondary">See How It Works</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>The Short Version</h3>
+      <ul>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>We run ads &amp; recruit drivers built around your lanes &amp; pay</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>You review &amp; approve every driver — safety always decides</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>$1,600 per seated driver, split 50/50</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Free replacement if a driver no-shows the first load</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Company drivers only — we don't recruit owner-operators</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Value strip -->
+<section class="strip">
+  <div class="container">
+    <div class="strip-grid">
+      <div class="strip-item"><div class="strip-num">$0</div><div class="strip-label">Setup / Retainer</div></div>
+      <div class="strip-item"><div class="strip-num">$0</div><div class="strip-label">Marketing Spend On You</div></div>
+      <div class="strip-item"><div class="strip-num">$1,600</div><div class="strip-label">Per Seated Driver</div></div>
+      <div class="strip-item"><div class="strip-num">50/50</div><div class="strip-label">Payment Split</div></div>
+      <div class="strip-item"><div class="strip-num">100%</div><div class="strip-label">Replacement Guarantee</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- What We Do -->
+<section class="whatwedo section-padding" id="how">
+  <div class="container">
+    <div style="max-width:720px;">
+      <span class="section-over">What We Do</span>
+      <h2 class="section-head">CDL-A Driver Recruiting, End-to-End.</h2>
+      <p class="section-lead">We are a CDL-A OTR driver recruiting partner for trucking carriers. We run paid advertising for your fleet, qualify drivers, gather everything your safety team needs to decide, and bring approved drivers all the way to orientation. Your safety team always makes the final call on every driver.</p>
+    </div>
+
+    <div class="whatwedo-grid">
+      <div class="whatwedo-list">
+        <div class="wd-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+          <div><strong>Paid Ads Built For You</strong><span>Meta and Indeed campaigns tailored to your lanes, routes, and pay package — running exclusively for your carrier.</span></div>
+        </div>
+        <div class="wd-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <div><strong>Active Recruiting</strong><span>We engage drivers personally — qualifying them on home location, weeks out, SAP history, CDL, and medical card before they ever reach you.</span></div>
+        </div>
+        <div class="wd-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <div><strong>Your Process, Their Hands</strong><span>We pass your application and forms straight to the candidate — nothing changes about how your safety team operates.</span></div>
+        </div>
+        <div class="wd-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M9 11l3 3 8-8"></path></svg>
+          <div><strong>Travel &amp; Orientation Handled</strong><span>Once approved, we schedule orientation and coordinate the driver's travel — you cover the travel cost, we handle the logistics.</span></div>
+        </div>
+      </div>
+      <div>
+        <div style="background:linear-gradient(160deg,#0F172A,#1E3A8A);color:#fff;border-radius:18px;padding:36px;">
+          <span class="bebas" style="display:block;font-size:18px;color:#60A5FA;letter-spacing:0.1em;margin-bottom:10px;">Important</span>
+          <h3 class="bebas" style="font-size:30px;margin-bottom:14px;">Company Drivers Only.</h3>
+          <p style="color:rgba(255,255,255,0.78);line-height:1.6;font-size:15px;">We recruit CDL-A OTR <strong style="color:#fff;">company drivers</strong> exclusively. We do <strong style="color:#fff;">not</strong> recruit owner-operators. If your fleet runs both, that's fine — we'll simply focus on the company-driver side.</p>
+        </div>
+        <div class="note-callout">
+          <strong>Why this matters:</strong> Company-driver recruiting is a different game from owner-operator recruiting. Focusing only on company drivers is how we keep ad spend efficient and candidate quality high.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="process section-padding">
+  <div class="container center">
+    <span class="section-over">The Process</span>
+    <h2 class="section-head">From Ad To Seated Driver In Seven Steps.</h2>
+    <p class="section-lead">A clear, repeatable flow. You stay in control of safety. We handle the recruiting grind.</p>
+
+    <div class="process-grid">
+      <div class="p-card">
+        <span class="p-num">01</span>
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>
+        <div class="p-title">We Advertise For You</div>
+        <p class="p-desc">Meta &amp; Indeed campaigns built around your lanes, routes, and pay package — exclusive to your carrier.</p>
+      </div>
+      <div class="p-card">
+        <span class="p-num">02</span>
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+        <div class="p-title">We Recruit The Driver</div>
+        <p class="p-desc">Interested CDL-A drivers respond. We engage them, qualify them, and recruit on your behalf.</p>
+      </div>
+      <div class="p-card">
+        <span class="p-num">03</span>
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="15" y2="17"></line></svg>
+        <div class="p-title">Driver Applies</div>
+        <p class="p-desc">The driver fills out your application and any forms you require. We pass your process straight to the candidate.</p>
+      </div>
+      <div class="p-card">
+        <span class="p-num">04</span>
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <div class="p-title">We Send You The Info</div>
+        <p class="p-desc">Home location, weeks on the road, SAP program history, CDL, and medical card — everything you need to decide.</p>
+      </div>
+      <div class="p-card">
+        <span class="p-num">05</span>
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <div class="p-title">You Review &amp; Approve</div>
+        <p class="p-desc">Your safety team runs PSP, MVR, CDL scan, employment history, and anything else you require. The call is fully yours.</p>
+      </div>
+      <div class="p-card">
+        <span class="p-num">06</span>
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"></path><path d="M8 21H3v-5"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>
+        <div class="p-title">Orientation &amp; Travel</div>
+        <p class="p-desc">Once approved, we schedule orientation and arrange the driver's travel — getting them to your office on time.</p>
+      </div>
+      <div class="p-card">
+        <span class="p-num">07</span>
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+        <div class="p-title">Driver Is Seated</div>
+        <p class="p-desc">The driver completes orientation and starts running. Placement complete — and that's when we get paid.</p>
+      </div>
+      <div class="p-card" style="background:linear-gradient(160deg,#2563EB,#1E3A8A);color:#fff;border:none;">
+        <span class="p-num" style="color:rgba(255,255,255,0.25);opacity:1;">★</span>
+        <svg class="p-icon" style="color:#fff;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <div class="p-title" style="color:#fff;">Repeat.</div>
+        <p class="p-desc" style="color:rgba(255,255,255,0.85);">No caps, no minimums. We keep delivering qualified drivers as long as you want seats filled.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing section-padding" id="pricing">
+  <div class="container">
+    <div style="text-align:center; max-width:760px; margin:0 auto;">
+      <span class="section-over">Who Pays For What</span>
+      <h2 class="section-head">Plain Terms. No Surprises.</h2>
+      <p class="section-lead">This is the question carriers ask about most often. Here's exactly how it works.</p>
+    </div>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <span class="price-tag">Travel Expenses</span>
+        <h3>Paid By You — The Carrier.</h3>
+        <p class="lead">When a driver is approved and needs to travel to your orientation, the cost of that travel is yours, not ours.</p>
+        <div class="price-amount" style="font-size:42px;">At cost <small style="display:block;margin-top:6px;">(flight, bus, hotel as needed)</small></div>
+        <ul class="price-list" style="margin-top:24px;">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>We handle booking &amp; logistics</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>You're billed for actual travel cost only</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Every driver signs our travel waiver before tickets are purchased</li>
+        </ul>
+      </div>
+
+      <div class="price-card featured">
+        <span class="price-tag">Our Recruiting Fee</span>
+        <h3>$1,600 Per Seated Driver.</h3>
+        <p class="lead">Paid by you — the carrier — and only when a driver actually seats. Split into two equal payments.</p>
+        <div class="price-amount">$1,600<small> total / placement</small></div>
+        <div class="price-split">
+          <div class="split-box">
+            <strong>$800</strong>
+            <span>Due after the driver completes orientation.</span>
+          </div>
+          <div class="split-box">
+            <strong>$800</strong>
+            <span>Due 3 weeks later — only if the driver is still employed.</span>
+          </div>
+        </div>
+        <ul class="price-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>No marketing costs — ad spend is on us</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>No setup fees, no retainers</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>You pay for results, not leads or applications</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guarantee -->
+<section class="guarantee section-padding" id="guarantee">
+  <div class="container">
+    <div class="guarantee-wrap">
+      <div class="guarantee-badge">
+        <svg class="g-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        <h3>Our Guarantee</h3>
+        <p>Simple. Fair. We stand behind every placement — because you should never pay for a driver who never ran.</p>
+      </div>
+      <div class="guarantee-list">
+        <div class="g-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <p><strong>Driver disappears after orientation?</strong> We replace them free of charge. You are not left paying for someone who never ran.</p>
+        </div>
+        <div class="g-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <p><strong>Once the driver completes their first load,</strong> the first $800 becomes non-refundable — the placement counts as successful.</p>
+        </div>
+        <div class="g-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <p><strong>Still employed at the 3-week mark?</strong> The second $800 is due. Simple as that — no hidden conditions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Travel waiver callout -->
+<section class="waiver section-padding">
+  <div class="container">
+    <div class="waiver-card">
+      <div class="waiver-inner">
+        <div class="waiver-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="14" x2="15" y2="14"></line><line x1="9" y1="18" x2="13" y2="18"></line></svg>
+        </div>
+        <div class="waiver-text">
+          <h3>Every Driver Signs A Travel Waiver — Before Any Tickets Are Bought.</h3>
+          <p>Before we purchase a flight, bus ticket, or any other travel for an approved driver, that driver must sign our travel waiver agreeing to reimburse the cost if they fail to show up for the trip. This protects you, protects us, and keeps the whole process clean. The waiver is signed online at the link below.</p>
+        </div>
+        <a href="https://otrexpressgroup.com/travel" target="_blank" rel="noopener" class="waiver-btn">View Travel Waiver &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What to expect -->
+<section class="expect section-padding" id="expect">
+  <div class="container">
+    <div style="max-width:720px;">
+      <span class="section-over">What To Expect From Us</span>
+      <h2 class="section-head">Straightforward. Honest. Built For Carriers.</h2>
+      <p class="section-lead">No fluff, no inflated promises. Here is exactly what working with OTR Express Group looks like in practice.</p>
+    </div>
+
+    <div class="expect-grid">
+      <div class="e-card">
+        <div class="e-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+        <div><div class="e-title">CDL-A OTR Company Drivers Only</div><div class="e-desc">That's our lane. No owner-operators. Focused recruiting means better ad efficiency and higher candidate quality.</div></div>
+      </div>
+      <div class="e-card">
+        <div class="e-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
+        <div><div class="e-title">No Minimums, No Caps</div><div class="e-desc">Need one driver? Need twenty? We don't artificially limit volume — we bring you as many qualified drivers as the market allows.</div></div>
+      </div>
+      <div class="e-card">
+        <div class="e-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
+        <div><div class="e-title">Honesty On Numbers</div><div class="e-desc">We don't promise a magic number of drivers. Volume depends on your lanes, your pay package, and the market — and we'll tell you straight.</div></div>
+      </div>
+      <div class="e-card">
+        <div class="e-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.36.16.66.42.88.74.21.32.32.69.32 1.06v.4c0 .37-.11.74-.32 1.06-.22.32-.52.58-.88.74z"></path></svg></div>
+        <div><div class="e-title">Focused On Your Carrier</div><div class="e-desc">Every ad we run, every recruit we engage — they're for you. Your lanes, your routes, your pay package. Not a shared pool.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact form -->
+<section class="contact section-padding" id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-left">
+        <span class="section-over">Let's Talk</span>
+        <h2 class="section-head">Ready to Fill Your Trucks?</h2>
+        <p class="section-lead">Drop your details below and we'll reach out within 24 hours to walk you through next steps. No commitment, no pressure — just a real conversation about how many seats you need filled.</p>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Response within 24 hours</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>No commitment to start</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>You only pay when a driver actually seats</li>
+        </ul>
+      </div>
+      <div>
+        <form class="form-box" id="leadForm" novalidate>
+          <div class="form-msg" id="formMsg"></div>
+          <div class="f-grid">
+            <div class="f-group">
+              <input type="text" class="f-ctrl" id="name" name="name" placeholder=" " required maxlength="80" />
+              <label class="f-label" for="name">Your Name *</label>
+            </div>
+            <div class="f-group">
+              <input type="text" class="f-ctrl" id="company" name="company" placeholder=" " required maxlength="120" />
+              <label class="f-label" for="company">Company Name *</label>
+            </div>
+            <div class="f-group">
+              <input type="number" min="1" max="9999" class="f-ctrl" id="trucks" name="trucks" placeholder=" " required />
+              <label class="f-label" for="trucks">Number Of Trucks *</label>
+            </div>
+            <div class="f-group">
+              <input type="tel" class="f-ctrl" id="phone" name="phone" placeholder=" " required maxlength="30" />
+              <label class="f-label" for="phone">Phone Number *</label>
+            </div>
+            <div class="f-group full">
+              <input type="email" class="f-ctrl" id="email" name="email" placeholder=" " required maxlength="120" />
+              <label class="f-label" for="email">Email Address *</label>
+            </div>
+          </div>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true" />
+          <button type="submit" class="f-btn" id="submitBtn">Get Drivers Now &rarr;</button>
+          <div class="f-secure">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Your information is sent directly to our team. We never share or sell it.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo-row">
+          <img src="logo.png" alt="OTR Express Group" />
+          <div>
+            <span class="ft-logo-top">OTR EXPRESS</span>
+            <span class="ft-logo-bot">GROUP</span>
+          </div>
+        </div>
+        <p class="ft-desc">CDL-A OTR driver recruiting for trucking carriers. We deliver qualified company drivers all the way to your orientation — and you only pay when they seat.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Navigate</h5>
+        <div class="ft-links">
+          <a href="#how">How We Work</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#guarantee">Guarantee</a>
+          <a href="#expect">What To Expect</a>
+          <a href="#contact">Get Started</a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h5>Resources</h5>
+        <div class="ft-links">
+          <a href="https://otrexpressgroup.com/" target="_blank" rel="noopener">Main Site</a>
+          <a href="https://otrexpressgroup.com/travel" target="_blank" rel="noopener">Travel Waiver</a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p>&copy; <span id="year"></span> OTR Express Group — a DBA of Benux Corp. All rights reserved.</p>
+      <p>CDL-A OTR Company Driver Recruiting</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  const form = document.getElementById('leadForm');
+  const msg = document.getElementById('formMsg');
+  const btn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    msg.style.display = 'none';
+    msg.className = 'form-msg';
+
+    const fields = ['name','company','trucks','phone','email'];
+    let ok = true;
+    fields.forEach(f => {
+      const el = form.elements[f];
+      el.classList.remove('error');
+      if (!el.value.trim()) { el.classList.add('error'); ok = false; }
+    });
+    const email = form.elements.email.value.trim();
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      form.elements.email.classList.add('error'); ok = false;
+    }
+    if (!ok) {
+      msg.textContent = 'Please fill out all fields correctly.';
+      msg.classList.add('error');
+      msg.style.display = 'block';
+      return;
+    }
+
+    btn.setAttribute('data-loading','1');
+    btn.textContent = 'Sending...';
+
+    try {
+      const fd = new FormData(form);
+      const res = await fetch('submit.php', { method: 'POST', body: fd });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        msg.textContent = 'Thanks! We received your request and will reach out within 24 hours.';
+        msg.classList.add('success');
+        msg.style.display = 'block';
+        form.reset();
+      } else {
+        throw new Error(data.error || 'Something went wrong.');
+      }
+    } catch (err) {
+      msg.textContent = 'Sorry, we could not submit your request. Please try again or email us directly.';
+      msg.classList.add('error');
+      msg.style.display = 'block';
+    } finally {
+      btn.removeAttribute('data-loading');
+      btn.innerHTML = 'Get Drivers Now &rarr;';
+    }
+  });
+</script>
+
+</body>
+</html>
