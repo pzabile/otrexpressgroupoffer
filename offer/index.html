@@ -58,9 +58,10 @@
     .nav-logo-bottom { font-family: var(--font-subheading); font-weight: 700; color: var(--accent-primary); font-size: 13px; letter-spacing: 0.1em; }
 
     .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-item { font-family: var(--font-subheading); font-weight: 600; color: var(--text-primary); font-size: 15px; text-transform: uppercase; letter-spacing: 0.05em; position: relative; padding-bottom: 4px; }
+    .nav-item { font-family: var(--font-subheading); font-weight: 600; color: var(--text-primary); font-size: 15px; text-transform: uppercase; letter-spacing: 0.05em; position: relative; padding-bottom: 4px; overflow: hidden; }
     .nav-item::after { content: ''; position: absolute; bottom: 0; left: -100%; width: 100%; height: 2px; background: var(--accent-primary); transition: left 0.3s ease; }
     .nav-item:hover::after { left: 0; }
+    @media (max-width: 860px) { .nav-item { overflow: visible; } .nav-item::after { display: none; } }
     .nav-btn { background: var(--accent-primary); color: #fff; padding: 10px 22px; border-radius: 6px; font-weight: 700; font-size: 15px; transition: background 0.3s; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-subheading); }
     .nav-btn:hover { background: var(--accent-hover); }
 
@@ -335,7 +336,7 @@
         </div>
         <div class="wd-item">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M9 11l3 3 8-8"></path></svg>
-          <div><strong>Travel &amp; Orientation Handled</strong><span>Once approved, we schedule orientation and coordinate the driver's travel — you cover the travel cost, we handle the logistics.</span></div>
+          <div><strong>Travel &amp; Orientation Handled</strong><span>Once approved, we schedule orientation, source the travel, and confirm it with the driver. You purchase the ticket upfront — driver signs the travel waiver first.</span></div>
         </div>
       </div>
       <div>
@@ -394,7 +395,7 @@
         <span class="p-num">06</span>
         <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"></path><path d="M8 21H3v-5"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>
         <div class="p-title">Orientation &amp; Travel</div>
-        <p class="p-desc">Once approved, we schedule orientation and arrange the driver's travel — getting them to your office on time.</p>
+        <p class="p-desc">We schedule orientation, find the travel, and confirm with the driver. Driver signs the waiver, then you purchase the ticket upfront.</p>
       </div>
       <div class="p-card">
         <span class="p-num">07</span>
@@ -424,13 +425,14 @@
     <div class="price-grid">
       <div class="price-card">
         <span class="price-tag">Travel Expenses</span>
-        <h3>Paid By You — The Carrier.</h3>
-        <p class="lead">When a driver is approved and needs to travel to your orientation, the cost of that travel is yours, not ours.</p>
-        <div class="price-amount" style="font-size:42px;">At cost <small style="display:block;margin-top:6px;">(flight, bus, hotel as needed)</small></div>
-        <ul class="price-list" style="margin-top:24px;">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>We handle booking &amp; logistics</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>You're billed for actual travel cost only</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Every driver signs our travel waiver before tickets are purchased</li>
+        <h3>Bought &amp; Paid Upfront — By You.</h3>
+        <p class="lead">Travel to orientation is purchased directly by your carrier, upfront. We do the legwork; the ticket goes on your card.</p>
+        <div class="price-amount" style="font-size:36px;">Carrier-Funded <small style="display:block;margin-top:6px;">flight, bus, hotel as needed</small></div>
+        <ul class="price-list" style="margin-top:20px;">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>We find the tickets</strong> — best route, best price.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>We confirm with the driver</strong> that the schedule works for them.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>Driver signs the travel waiver</strong> before any purchase is made.</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>You purchase the ticket</strong> upfront, directly on your account.</span></li>
         </ul>
       </div>
 
@@ -495,14 +497,42 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="14" x2="15" y2="14"></line><line x1="9" y1="18" x2="13" y2="18"></line></svg>
         </div>
         <div class="waiver-text">
-          <h3>Every Driver Signs A Travel Waiver — Before Any Tickets Are Bought.</h3>
-          <p>Before we purchase a flight, bus ticket, or any other travel for an approved driver, that driver must sign our travel waiver agreeing to reimburse the cost if they fail to show up for the trip. This protects you, protects us, and keeps the whole process clean. The waiver is signed online at the link below.</p>
+          <h3>Driver Signs The Travel Waiver — Before A Single Ticket Is Bought.</h3>
+          <p>Every approved driver must e-sign our <strong style="color:#fff;">Travel &amp; Orientation Expense Repayment Agreement</strong> before any travel is purchased on your behalf. It's a short, plain-language form the driver fills out at <a href="https://otrexpressgroup.com/travel/" target="_blank" rel="noopener" style="color:#93C5FD;text-decoration:underline;">otrexpressgroup.com/travel</a>. Once signed, we proceed with booking. This is the safety net that protects your travel budget.</p>
         </div>
-        <a href="https://otrexpressgroup.com/travel" target="_blank" rel="noopener" class="waiver-btn">View Travel Waiver &rarr;</a>
+        <a href="https://otrexpressgroup.com/travel/" target="_blank" rel="noopener" class="waiver-btn">View Travel Waiver &rarr;</a>
+      </div>
+
+      <div style="position:relative; margin-top:32px; display:grid; grid-template-columns:repeat(4,1fr); gap:16px;" class="waiver-points">
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:20px;">
+          <div style="font-family:var(--font-heading); font-size:32px; color:#60A5FA; line-height:1; margin-bottom:8px;">$500</div>
+          <div style="font-family:var(--font-subheading); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:#fff; margin-bottom:6px;">Maximum Liability</div>
+          <div style="font-size:13px; color:rgba(255,255,255,0.7); line-height:1.5;">Driver reimburses actual documented travel costs, capped at $500.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:20px;">
+          <div style="font-family:var(--font-heading); font-size:32px; color:#60A5FA; line-height:1; margin-bottom:8px;">48 hr</div>
+          <div style="font-family:var(--font-subheading); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:#fff; margin-bottom:6px;">Notice Window</div>
+          <div style="font-size:13px; color:rgba(255,255,255,0.7); line-height:1.5;">Cancel 48+ hours out — no reimbursement owed. Less than that, the waiver applies.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:20px;">
+          <div style="font-family:var(--font-heading); font-size:32px; color:#60A5FA; line-height:1; margin-bottom:8px;">No-Show</div>
+          <div style="font-family:var(--font-subheading); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:#fff; margin-bottom:6px;">Triggers Repay</div>
+          <div style="font-size:13px; color:rgba(255,255,255,0.7); line-height:1.5;">No-call/no-show, refusal after booking, or false info — driver owes the documented cost.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:20px;">
+          <div style="font-family:var(--font-heading); font-size:32px; color:#60A5FA; line-height:1; margin-bottom:8px;">Fair</div>
+          <div style="font-family:var(--font-subheading); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:#fff; margin-bottom:6px;">Built-In Exceptions</div>
+          <div style="font-size:13px; color:rgba(255,255,255,0.7); line-height:1.5;">Documented medical, accident, or carrier-side cancellation — driver owes nothing.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  @media (max-width: 900px) { .waiver-points { grid-template-columns: repeat(2, 1fr) !important; } }
+  @media (max-width: 480px) { .waiver-points { grid-template-columns: 1fr !important; } }
+</style>
 
 <!-- What to expect -->
 <section class="expect section-padding" id="expect">
