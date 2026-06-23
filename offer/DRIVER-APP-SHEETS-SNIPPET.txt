@@ -1,0 +1,103 @@
+DRIVER-APPLICATION PHP — GOOGLE SHEETS SNIPPET
+==============================================
+
+This is the block to paste into your driver-application submit.php
+(the one you sent that handles fullName / phone / email / experience /
+cdlClass / state / message / consent).
+
+It writes each application as a new row in the same spreadsheet:
+  https://docs.google.com/spreadsheets/d/1QEgUDPC_FMIEvTe6Oik9CKyhGZ9OQJCoyn5VSa3LlQY/edit
+... on the tab named:  website
+
+PREREQ — same shared Apps Script Web App
+----------------------------------------
+You already have the Apps Script deployed for the /offer form. After
+pasting the new google-apps-script.gs (the generalized one), redeploy:
+  Apps Script  ->  Deploy  ->  Manage deployments  ->  Edit (pencil)
+                ->  Version: New version  ->  Deploy.
+The /exec URL stays the same — both forms reuse it.
+
+STEP 1 — Add these two constants near the top of the driver PHP file
+(right next to your $telegramBotToken / $smtpHost block):
+
+    // ─── Google Sheets ───
+    $sheetsWebhookUrl = 'https://script.google.com/macros/s/AKfyc.../exec';  // same URL as /offer
+    $sheetsSecret     = 'otr-offer-2026';                                    // must match SECRET in google-apps-script.gs
+
+
+STEP 2 — Paste this BLOCK just before the final
+`echo json_encode(['success' => true, ...])` line at the bottom
+of the file:
+
+    // ═══════════════════════════════════════════
+    // 3.5) APPEND ROW TO GOOGLE SHEETS (tab: website)
+    // ═══════════════════════════════════════════
+    $sheetsSent = false;
+    if (!empty($sheetsWebhookUrl)) {
+        $sheetsPayload = json_encode([
+            'secret'     => $sheetsSecret,
+            'sheet_name' => 'website',
+            'headers'    => [
+                'Submitted At', 'Full Name', 'Phone', 'Email',
+                'CDL Class', 'Experience (yrs)', 'State', 'Message',
+                'Consent', 'IP', 'User Agent',
+                'Email Sent', 'Telegram Sent'
+            ],
+            'values'     => [
+                $timestamp,
+                $fullName,
+                $phone,
+                $email,
+                $cdlClass,
+                $experience,
+                $state,
+                $message,
+                $consent ?: 'Yes',
+                $_SERVER['REMOTE_ADDR']     ?? '',
+                $_SERVER['HTTP_USER_AGENT'] ?? '',
+                $emailSent    ? 'OK' : 'FAIL',
+                $telegramSent ? 'OK' : 'FAIL',
+            ],
+        ]);
+
+        if (function_exists('curl_init')) {
+            $chs = curl_init($sheetsWebhookUrl);
+            curl_setopt_array($chs, [
+                CURLOPT_POST           => true,
+                CURLOPT_POSTFIELDS     => $sheetsPayload,
+                CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT        => 8,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_SSL_VERIFYPEER => false,
+            ]);
+            $sheetsResp   = curl_exec($chs);
+            $sheetsStatus = curl_getinfo($chs, CURLINFO_HTTP_CODE);
+            curl_close($chs);
+            $sheetsSent = ($sheetsStatus === 200 && strpos((string)$sheetsResp, '"ok":true') !== false);
+        }
+
+        // Log the result alongside Telegram/Email
+        file_put_contents(__DIR__ . '/sheets_debug.log',
+            "[" . date('Y-m-d H:i:s') . "] Sheets " . ($sheetsSent ? 'OK' : 'FAIL') .
+            " | status={$sheetsStatus} | body=" . substr((string)$sheetsResp, 0, 200) . "\n",
+            FILE_APPEND);
+    }
+
+
+STEP 3 — Optionally extend the submissions.log line to also record
+Sheets status. Find this line:
+
+    $logEntry = "[{$timestamp}] {$fullName} | {$phone} | ... | Telegram:" . ($telegramSent ? 'OK' : 'FAIL') . "\n";
+
+And add at the end before the "\n":
+
+    . " | Sheets:" . ($sheetsSent ? 'OK' : 'FAIL')
+
+
+THAT'S IT
+---------
+First submission after deploy creates the "website" tab with header row.
+Every subsequent submission appends one row. If Sheets is ever down,
+the user still gets the success response and Telegram + email still go
+through — the failure is logged to sheets_debug.log for review.

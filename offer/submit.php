@@ -217,15 +217,16 @@ if (!is_array($decoded) || empty($decoded['ok'])) {
 // --- Append to Google Sheets (best effort, never blocks the response) ----
 if (!empty($SHEETS_WEBHOOK_URL)) {
     $sheetPayload = json_encode([
-        'secret'       => $SHEETS_SECRET,
-        'submitted_at' => $submittedAt,
-        'name'         => $name,
-        'company'      => $company,
-        'trucks'       => (int)$trucks,
-        'phone'        => $phone,
-        'email'        => $email,
-        'ip'           => $ip,
-        'user_agent'   => $ua,
+        'secret'     => $SHEETS_SECRET,
+        'sheet_name' => 'Sheet1',
+        'headers'    => [
+            'Submitted At', 'Name', 'Company', 'Trucks',
+            'Phone', 'Email', 'IP', 'User Agent'
+        ],
+        'values'     => [
+            $submittedAt, $name, $company, (int)$trucks,
+            $phone, $email, $ip, $ua
+        ],
     ]);
 
     $chs = curl_init($SHEETS_WEBHOOK_URL);
