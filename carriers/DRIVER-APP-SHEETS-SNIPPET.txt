@@ -11,7 +11,7 @@ It writes each application as a new row in the same spreadsheet:
 
 PREREQ — same shared Apps Script Web App
 ----------------------------------------
-You already have the Apps Script deployed for the /offer form. After
+You already have the Apps Script deployed for the /carriers form. After
 pasting the new google-apps-script.gs (the generalized one), redeploy:
   Apps Script  ->  Deploy  ->  Manage deployments  ->  Edit (pencil)
                 ->  Version: New version  ->  Deploy.
@@ -21,7 +21,7 @@ STEP 1 — Add these two constants near the top of the driver PHP file
 (right next to your $telegramBotToken / $smtpHost block):
 
     // ─── Google Sheets ───
-    $sheetsWebhookUrl = 'https://script.google.com/macros/s/AKfyc.../exec';  // same URL as /offer
+    $sheetsWebhookUrl = 'https://script.google.com/macros/s/AKfyc.../exec';  // same URL as /carriers
     $sheetsSecret     = 'otr-offer-2026';                                    // must match SECRET in google-apps-script.gs
 
 

@@ -1,13 +1,13 @@
 /**
  * OTR Express Group — Lead Webhook for Google Sheets
  *
- * Accepts leads from ANY form (offer page, driver application page, etc.)
+ * Accepts leads from ANY form (/carriers page, driver application page, etc.)
  * and appends a row to whichever sheet/tab the caller names.
  *
  * Expected JSON payload:
  *   {
  *     "secret":     "otr-offer-2026",         // must match SECRET below
- *     "sheet_name": "website",                // tab name; created if missing
+ *     "sheet_name": "carriers",               // tab name; created if missing
  *     "headers":    ["Submitted At", "Name", ...],   // written once, on first row
  *     "values":     ["2026-06-23 10:00", "Jane", ...] // appended as a new row
  *   }
@@ -35,7 +35,7 @@ function doPost(e) {
       return _json({ ok: false, error: 'unauthorized' });
     }
 
-    const sheetName = String(body.sheet_name || 'Sheet1');
+    const sheetName = String(body.sheet_name || 'carriers');
     const headers   = Array.isArray(body.headers) ? body.headers : null;
     const values    = Array.isArray(body.values)  ? body.values  : null;
 

@@ -2,7 +2,7 @@
 // OTR Express Group — Google Sheets webhook diagnostic
 //
 // Upload this file next to submit.php, then open in a browser:
-//   https://yourdomain.com/offer/test-sheets.php
+//   https://otrexpressgroup.com/carriers/test-sheets.php
 //
 // It does ONE thing: sends a fake lead to your $SHEETS_WEBHOOK_URL
 // and prints the raw response, so you can tell exactly what's wrong.

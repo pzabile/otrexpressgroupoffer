@@ -140,7 +140,7 @@ $lines = [
     ['style' => 'body', 'text' => 'Email:          ' . $email],
     ['style' => 'spacer', 'text' => ''],
     ['style' => 'h2', 'text' => 'Source'],
-    ['style' => 'body', 'text' => 'Page:    /offer'],
+    ['style' => 'body', 'text' => 'Page:    /carriers'],
     ['style' => 'body', 'text' => 'IP:      ' . $ip],
     ['style' => 'body', 'text' => 'Agent:   ' . substr($ua, 0, 80)],
     ['style' => 'spacer', 'text' => ''],
@@ -218,7 +218,7 @@ if (!is_array($decoded) || empty($decoded['ok'])) {
 if (!empty($SHEETS_WEBHOOK_URL)) {
     $sheetPayload = json_encode([
         'secret'     => $SHEETS_SECRET,
-        'sheet_name' => 'Sheet1',
+        'sheet_name' => 'carriers',
         'headers'    => [
             'Submitted At', 'Name', 'Company', 'Trucks',
             'Phone', 'Email', 'IP', 'User Agent'
