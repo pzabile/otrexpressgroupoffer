@@ -1,12 +1,19 @@
 <?php
 // OTR Express Group — Carrier Lead Handler
-// Receives the lead form, generates a PDF, sends it to Telegram.
+// Receives the lead form, generates a PDF, sends it to Telegram,
+// and appends a row to Google Sheets via an Apps Script webhook.
 
 header('Content-Type: application/json; charset=utf-8');
 
 // --- Config ---------------------------------------------------------------
 $TELEGRAM_BOT_TOKEN = '8517526106:AAH3q0IdULxrUzUhffJfoq0cjX4GBtkdU4g';
 $TELEGRAM_CHAT_ID   = '325385972';
+
+// Google Sheets webhook (Apps Script Web App URL).
+// Paste the URL after you deploy google-apps-script.gs — see UPLOAD-README.txt.
+// Leave empty ('') to disable the Google Sheets save.
+$SHEETS_WEBHOOK_URL = '';
+$SHEETS_SECRET      = 'otr-offer-2026'; // must match the SECRET in your Apps Script
 
 // --- Helpers --------------------------------------------------------------
 function fail($msg, $code = 400) {
@@ -205,6 +212,52 @@ if ($response === false || $status >= 400) {
 $decoded = json_decode($response, true);
 if (!is_array($decoded) || empty($decoded['ok'])) {
     fail('Telegram rejected the message.', 502);
+}
+
+// --- Append to Google Sheets (best effort, never blocks the response) ----
+if (!empty($SHEETS_WEBHOOK_URL)) {
+    $sheetPayload = json_encode([
+        'secret'       => $SHEETS_SECRET,
+        'submitted_at' => $submittedAt,
+        'name'         => $name,
+        'company'      => $company,
+        'trucks'       => (int)$trucks,
+        'phone'        => $phone,
+        'email'        => $email,
+        'ip'           => $ip,
+        'user_agent'   => $ua,
+    ]);
+
+    $chs = curl_init($SHEETS_WEBHOOK_URL);
+    curl_setopt_array($chs, [
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $sheetPayload,
+        CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 8,
+        CURLOPT_FOLLOWLOCATION => true,
+    ]);
+    $sheetsResponse = curl_exec($chs);
+    $sheetsStatus   = curl_getinfo($chs, CURLINFO_HTTP_CODE);
+    curl_close($chs);
+
+    // If Sheets failed, notify Telegram so the row can be added manually.
+    // We do NOT fail the user request — Telegram already has the lead.
+    if ($sheetsResponse === false || $sheetsStatus >= 400) {
+        $warnUrl = "https://api.telegram.org/bot{$TELEGRAM_BOT_TOKEN}/sendMessage";
+        $chw = curl_init($warnUrl);
+        curl_setopt_array($chw, [
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => http_build_query([
+                'chat_id' => $TELEGRAM_CHAT_ID,
+                'text'    => "Heads up: Google Sheets append failed for the lead above (HTTP {$sheetsStatus}). Add the row manually if needed.",
+            ]),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT        => 8,
+        ]);
+        curl_exec($chw);
+        curl_close($chw);
+    }
 }
 
 echo json_encode(['success' => true]);
